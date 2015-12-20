@@ -5,13 +5,14 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="#3d63b6"
         android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/mBtnBack"
             android:layout_width="55dp"
             android:layout_height="match_parent"
             android:background="@null"
@@ -20,12 +21,34 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+
             android:layout_gravity="center_vertical"
+            android:layout_toLeftOf="@+id/mBtnAddNew"
+            android:layout_toRightOf="@id/mBtnBack"
             android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="@string/app_name"
             android:textColor="@android:color/white"
-            android:textSize="30sp"
-            tools:text="Song name" />
-    </LinearLayout>
+            android:textSize="28sp" />
+
+        <ImageButton
+            android:id="@+id/mBtnAddNew"
+            android:layout_width="55dp"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/mBtnAboutMe"
+            android:background="@null"
+            android:src="@drawable/ic_add_new" />
+
+        <ImageView
+            android:id="@+id/mBtnAboutMe"
+            android:layout_width="55dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:scaleType="center"
+            android:src="@drawable/ic_profile" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -39,6 +62,7 @@
             android:src="@drawable/bg_media" />
 
         <TextView
+            android:id="@+id/mTvSongName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -52,10 +76,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/bg_media_bar"
             android:gravity="center_horizontal|bottom">
 
             <ImageButton
+                android:id="@+id/mBtnPrevious"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"
@@ -63,13 +87,15 @@
                 android:src="@drawable/ic_previous" />
 
             <ImageButton
+                android:id="@+id/mBtnPlay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/bg_btn_play"
-                android:src="@drawable/ic_play" />
+                android:src="@drawable/toggle_btn_play" />
 
             <ImageButton
+                android:id="@+id/mBtnNext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -78,51 +104,9 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <RelativeLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#bd3d63b6"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
-
-        <ImageView
-            android:id="@+id/imgAvatar"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:src="@mipmap/ic_launcher" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_toLeftOf="@+id/imgPlay"
-            android:layout_toRightOf="@id/imgAvatar"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:paddingLeft="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="22sp"
-                tools:text="Song name" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                tools:text="ArtistName" />
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/imgPlay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_play_red" />
-    </RelativeLayout>
+        android:layout_height="match_parent" />
 
 </LinearLayout>
